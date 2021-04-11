@@ -1,0 +1,34 @@
+Question 1)
+select p_ID,P_name,P_source,p_Cost 
+from 
+product_sheet
+where 
+p_Cost= (select max(p_Cost) from product_sheet)
+
+Question 2)
+select P_name,p_Cost 
+from 
+product_sheet
+where 
+p_Cost= (select max(p_Cost) from product_sheet)
+
+Question 3)
+select  p_ID,P_name,P_source,p_Cost,Dateadded,   
+from 
+product_sheet
+where Dateadded between '2021-01-01' and '2021-01-31'
+
+Question 4)
+select b.type_id,a.P_name,max(a.p_Cost)
+from
+product_sheet  a
+join 
+product_type b
+on a.Type = b.type_id
+group by b.type_id;
+
+Question 5)
+select *
+from
+`product_sheet`
+order by p_Cost desc
